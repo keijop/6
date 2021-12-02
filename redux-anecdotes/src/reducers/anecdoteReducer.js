@@ -37,7 +37,7 @@ export const createAnecdote = content => {
   }
 }
 
-const reducer = (state = sortAnecdotes(initialState), action) => {
+const anecdoteReducer = (state = sortAnecdotes(initialState), action) => {
   console.log('state now: ', state)
   console.log('action', action)
   switch (action.type) {
@@ -64,4 +64,4 @@ const reducer = (state = sortAnecdotes(initialState), action) => {
   }
 }
 
-export default reducer
+export default anecdoteReducer
