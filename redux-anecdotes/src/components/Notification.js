@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 
 const Notification = () => {
@@ -7,7 +8,6 @@ const Notification = () => {
     border: 'solid',
     padding: 10,
     borderWidth: 5,
-    display: notification.length < 1 ? 'none' : 'block',
   }
 
   return <div style={style}>{notification}</div>

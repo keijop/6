@@ -1,4 +1,4 @@
-const initialState = []
+const initialState = null
 
 export const createNotification = content => {
   return { type: 'ADD', content }
@@ -13,7 +13,7 @@ export const notificationReducer = (state = initialState, action) => {
     case 'ADD':
       return [action.content]
     case 'REMOVE':
-      return []
+      return null
     default:
       return initialState
   }
