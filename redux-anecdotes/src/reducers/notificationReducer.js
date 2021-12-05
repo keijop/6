@@ -8,12 +8,18 @@ export const removeNotification = () => {
   return { type: 'REMOVE' }
 }
 
+let previousNotificationID
+
 export const setNotification = (content, timeout) => {
   return dispatch => {
     dispatch(createNotification(content))
-    setTimeout(() => {
+    if (previousNotificationID) {
+      clearTimeout(previousNotificationID)
+    }
+    const latestNotificationID = setTimeout(() => {
       dispatch(removeNotification())
     }, timeout)
+    previousNotificationID = latestNotificationID
   }
 }
 
