@@ -8,6 +8,15 @@ export const removeNotification = () => {
   return { type: 'REMOVE' }
 }
 
+export const setNotification = (content, timeout) => {
+  return dispatch => {
+    dispatch(createNotification(content))
+    setTimeout(() => {
+      dispatch(removeNotification())
+    }, timeout)
+  }
+}
+
 export const notificationReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD':
@@ -15,6 +24,6 @@ export const notificationReducer = (state = initialState, action) => {
     case 'REMOVE':
       return null
     default:
-      return initialState
+      return state
   }
 }
